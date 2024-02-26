@@ -1,4 +1,4 @@
-# Base_100
+# Beginner
 
 Source : https://codeup.kr/problemsetsol.php?psid=33
 
