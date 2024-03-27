@@ -1,4 +1,4 @@
-# Novice
+# Beginner
 
 Source : https://codeup.kr/problemsetsol.php?psid=33
 
