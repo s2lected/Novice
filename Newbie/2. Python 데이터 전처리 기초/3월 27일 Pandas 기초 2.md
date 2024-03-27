@@ -540,7 +540,7 @@ plt.title('Frequency of Skills') #그래프의 제목
 plt.xlabel('Skill') #x축의 라벨
 plt.ylabel('Frequency') #y축의 라벨
 plt.xticks(rotation=45) #x축에 있는 기술 이름을 회전시켜 가독성 상승
-plt.tight_layout() #회전된 x축 라벨을 위해 레이아웃을 조
+plt.tight_layout() #회전된 x축 라벨을 위해 레이아웃을 조정
 plt.show() #그래프를 표시
 ```
 
