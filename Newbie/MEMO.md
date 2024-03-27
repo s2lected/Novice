@@ -1,12 +1,12 @@
 # Newbie
 
-### *Source
+### * Source
 https://samsung-citizendeveloper.elice.io/explore
 
-### *Contents
+### * Contents
 Citizen Developer
 
-### *Course
+### * Course
 1. Python 프로그래밍 기초 (2/20(화)~2/22(목))
 2. Python 데이터 전처리 기초 (3/26(화)~3/28(목))
 3. Python을 활용한
