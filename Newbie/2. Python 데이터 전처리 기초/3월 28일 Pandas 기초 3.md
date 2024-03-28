@@ -589,7 +589,7 @@ print(ans1)
 
 ### (자율실습)데이터 변환
 
-```pyhton
+```python
 import pandas as pd
 import numpy as np
 
@@ -633,7 +633,7 @@ if __name__ == "__main__":
 
 ### (자율실습)데이터 정제
 
-```pyhton
+```python
 import pandas as pd
 import numpy as np
 
@@ -678,7 +678,7 @@ if __name__ == "__main__":
 ```
 
 ### (자율실습)데이터 병합
-```pyhton
+```python
 import pandas as pd
 
 
