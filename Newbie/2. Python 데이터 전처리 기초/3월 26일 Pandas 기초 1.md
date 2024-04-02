@@ -756,3 +756,237 @@ df.groupby(["날씨","공휴일"])["총계"].mean()
 ```python
 df.groupby(["날씨","공휴일"])[["어른", "어린이"]].mean()
 ```
+
+---
+## 04 Pandas 기초 1 실습
+### pandas 패키지 불러오기
+
+```python
+import pandas as pd
+
+df = pd.DataFrame()
+print(df)
+```
+
+### Series 데이터
+
+```python
+import pandas as pd
+
+series = pd.Series([1, 2, 3, 4], index=["a", "b", "c", "d"], name="Title")
+print(series, "\n")
+
+my_series = pd.Series([100, 96, 80, 85], index = ["Kor", "Eng", "Mat", "Sci"], name = "Exam")
+print(my_series, "\n")
+```
+
+### 데이터프레임에서 특정 컬럼 조회
+
+```python
+import pandas as pd
+
+total_student  = int(input('총 성적의 개수 : '))
+col_names = ['이름', '국어', '수학', '영어']
+
+scores = [[int(col) if col.isdigit() else col for col in input().split()] for _ in range(total_student)]
+df = pd.DataFrame(scores, columns=col_names)
+print('\n', df, '\n')
+
+print(df['국어'])
+```
+
+### 데이터프레임에 새로운 컬럼 추가
+
+```python
+import pandas as pd
+
+total_student  = int(input('총 성적의 개수 : '))
+col_names = ['이름', '국어', '수학', '영어']
+
+scores = [[int(col) if col.isdigit() else col for col in input().split()] for _ in range(total_student)]
+new_score = list(map(int, input().split()))
+df = pd.DataFrame(scores, columns=col_names)
+print('\n', df, '\n')
+print('new_score :', new_score, '\n')
+
+df[('사회')] = pd.Series(new_score)
+print(df)
+```
+
+### 데이터프레임 숫자 세기
+
+```python
+import pandas as pd
+
+df = pd.read_csv('./data/data.csv')
+
+sex = {
+        1: '남성', 
+        2: '여성'
+      }
+
+df['SEX'] = df['SEX'].map(sex)
+
+dis = {
+        1: '고혈압/당뇨병 진료내역 있음',
+        2: '고혈압 진료내역 있음', 
+        3: '당뇨병 진료 내역 있음', 
+        4: '고혈압/당뇨병 진료내역 없음'
+       }
+
+df['DIS'] = df['DIS'].map(dis)
+
+dis_count = df['DIS'].value_counts()
+
+print(dis_count)
+```
+
+### 콤마가 있는 숫자 처리하기
+
+```python
+import pandas as pd
+
+df = pd.read_csv("./data/access_data.csv")
+
+print(df.info())
+print("===================\n")
+
+print(df.head())
+
+df["접속일자"] = pd.to_datetime(df["접속일자"])
+
+def del_comma(data: str):
+  if "," in data:
+    data = data.replace(",", "")
+  return data
+
+df["PC접속수"] = df["PC접속수"].apply(del_comma)
+df["모바일접속수"] = df["모바일접속수"].apply(del_comma)
+
+df["PC접속수"] = df["PC접속수"].astype(int)
+df["모바일접속수"] = df["모바일접속수"].astype(int)
+
+df["전체접속수"] = df["PC접속수"] + df["모바일접속수"]
+
+print(df.info())
+print("===================\n")
+
+print(df.head())
+```
+
+### 서울시 인구수 데이터 기반 고령화 정도 분석
+
+```python
+import pandas as pd
+
+df = pd.read_csv("./data/seoul_population.csv")
+
+df["노인인구비율"] = (df["70대"] + df["80대"] + df["90대 이상"]) / df["총인구수"]
+
+def ratio(x):
+  if x >= 0.14:
+    return "O"
+  else:
+    return "X"
+
+df["고령여부"] = df["노인인구비율"].apply(ratio)
+
+print(df)
+```
+
+### (자율실습)그룹으로 묶기
+
+```python
+import pandas as pd
+
+def main():
+  df = pd.DataFrame(
+    {
+      "class": ["A", "B", "C", "A", "B", "C"],
+      "Korean": [100, 96, 94, 92, 90, 86],
+      "Math": [85, 88, 91, 94, 97, 100],
+    }
+  )
+  print("DataFrame:")
+  print(df, "\n")
+
+  group1 = df.groupby("class")
+
+  print(group1.sum())
+```
+
+### (자율실습)펭귄 데이터 그룹화하기
+
+```python
+import pandas as pd
+
+df = pd.read_csv('penguins.csv')
+
+cols = input().split(',')
+
+if len(cols) == 1:
+  result = df.groupby(cols).mean(numeric_only = True)
+else:
+  result = df.groupby([cols[0], cols[1]]).mean(numeric_only = True)
+
+print(result)
+```
+
+### (자율실습)인도 IT 시장 점유율 확인하기
+
+```python
+import pandas as pd
+
+df = pd.read_csv('india_shares.csv')
+
+df['Date'] = pd.to_datetime(df['Date'])
+df['Year'] = df['Date'].dt.year
+df['Month'] = df['Date'].dt.month
+
+col = input()
+
+df = df.groupby(col).mean(numeric_only = True)
+
+print(df)
+```
+
+### (자율실습)함수로 데이터 처리하기
+
+```python
+import numpy as np
+import pandas as pd
+
+df = pd.DataFrame(np.arange(5), columns=["Num"])
+print(df, "\n")
+
+def square(x):
+    return x ** 2
+
+df["Square"] = df["Num"].apply(square)
+
+df["Square"] = df["Num"].apply(lambda x : x ** 2)
+```
+
+### (자율실습)타이타닉 데이터 요약
+
+```python
+import pandas as pd
+
+DATA_PATH = "train.csv"
+
+def main():
+  df = pd.read_csv(DATA_PATH)
+  df.info()
+  print(df.head())
+  print(df.describe())
+  print(df['Survived'].value_counts())
+
+if __name__ == "__main__":
+    main()
+```
+
+### (자율실습)당뇨 데이터 변환
+
+```python
+
+```
