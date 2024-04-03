@@ -988,5 +988,34 @@ if __name__ == "__main__":
 ### (자율실습)당뇨 데이터 변환
 
 ```python
+import pandas as pd
+import sys
 
+def load_csv(path: str):
+  df = pd.read_csv(path)
+  return df
+
+def categorize_bmi(bmi: str) -> int:
+  if bmi <= 18.5:
+    return 0
+  elif bmi > 18.5 and bmi <= 23.0:
+    return 1
+  elif bmi > 23.0 and bmi <= 25.0:
+    return 2
+  else:
+    return 3
+
+def bmi_to_categorical(data: pd.Series) -> pd.Series:
+  new_series = data.apply(categorize_bmi)
+  return new_series
+
+def main():
+  DATA_PATH = "data/diabetes.csv"
+  df = load_csv(DATA_PATH)
+  df["BMI"] = bmi_to_categorical(df["BMI"])
+  print(df["BMI"])
+  return 0
+
+if __name__ == "__main__":
+  sys.exit(main())
 ```
