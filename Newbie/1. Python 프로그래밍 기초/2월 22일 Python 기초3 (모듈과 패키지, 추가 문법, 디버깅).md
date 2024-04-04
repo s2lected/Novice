@@ -8,4 +8,15 @@
 2. 사용자 지정 함수
 
 def 함수이름(매개변수):
+  
   명령1
+
+  명령2
+
+  return 반환값
+
+**프로그래머의 역할과 사용자의 역할?**
+
+return vs print : return은 함수의 결과값을 변수에 할당 가능
+
+global variable vs local variable : 함수 내에서만 할당한 변수는 
