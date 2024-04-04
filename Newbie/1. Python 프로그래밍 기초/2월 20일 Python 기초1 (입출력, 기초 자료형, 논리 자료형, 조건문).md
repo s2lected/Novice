@@ -90,7 +90,7 @@ print(num1//num2)
 print(num1%num2)
 ```
 
-### 별이 빛나는 밤이에요!
+### [미션] 계단 별자리
 
 ```python
 print('*')
@@ -100,7 +100,7 @@ print('****')
 print('*****')
 ```
 
-### 섭씨를 화씨로 변환해봅시다!
+### [미션] 섭씨와 화씨
 
 ```python
 c = 18
@@ -125,3 +125,102 @@ or : True가 있는가?
 
 not : 논리값 뒤집기
 
+---
+## 03-2 논리 자료형 실습
+### 센티미터와 인치
+
+```python
+n = int(input())
+print(n * 2.54)
+```
+
+### 정사각형의 넓이 출력하기
+
+```python
+n = int(input())
+print(n * n)
+```
+
+---
+## 04-1 조건문 알아보기 (논리 자료형 심화)
+### [수업자료] 조건문 알아보기 (논리 자료형 심화)
+if : 조건이 True이면 명령 실행 (조건문에서 필수, else & elif는 필요에 따라), 들여쓰기는 tab으로
+
+elif : 아닌 경우에 ~라면
+
+else : 아니면 명령 실행
+
+if-elif-else 구문은 하나의 블럭으로 작동 (필요에 따라 써야함)
+
+---
+## 04-2 조건문 알아보기 실습
+### if-else문 개념
+
+```python
+x = int(input())
+y = int(input())
+
+if x >= y:
+  print('x가 y보다 크거나 같습니다.')
+else:
+  print('x가 y보다 작습니다.')
+```
+
+### if-elif-else문 개념
+
+```python
+x = int(input())
+y = int(input())
+
+if x > y:
+  print('x가 y보다 큽니다.')
+elif x < y:
+  print('x가 y보다 작습니다.')
+else:
+  print('x와 y가 같습니다.')
+```
+
+### 자리수 판별기
+
+```python
+num = int(input())
+
+if num >= 1 and num <= 9:
+  print('한 자리 숫자입니다.')
+elif num >= 10 and num <= 99:
+  print('두 자리 숫자입니다.')
+else:
+  print('세 자리 숫자입니다.')
+```
+
+### 놀이공원 입장료 계산하기
+
+```python
+age = int(input())
+
+if age >= 1 and age <= 7:
+  print('고객님, 입장료는 0원입니다.')
+elif age >= 8 and age <= 13:
+  print('고객님, 입장료는 5000원입니다.')
+elif age >= 14 and age <= 19:
+  print('고객님, 입장료는 10000원입니다.')
+else:
+  print('고객님, 입장료는 20000원입니다.')
+```
+
+### 집에 가는길
+
+```python
+money = int(input())
+
+if money >= 1000:
+  print('택시')
+elif money < 1000 and money >= 500:
+  print('버스')
+elif money < 500 and money >= 300:
+  print('지하철')
+else:
+  print('도보')
+```
+
+---
