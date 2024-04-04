@@ -18,4 +18,78 @@ def 함수이름(매개변수):
 
 return vs print : return은 함수의 결과값을 변수에 할당 가능
 
-global variable vs local variable : 함수 내에서만 할당한 변수는 
+global variable vs local variable : 함수 내에서만 할당한 변수는 전체 코드에 영향을 주지 않음
+
+메서드 : 특정 자료와 연관 지어 가능 (특화함수)
+
+---
+## 01-2 함수와 메서드 실습
+### 시퀀스의 합과 길이 구하기
+
+```python
+my_list = [1,2,3,4,5]
+
+print(sum(my_list))
+print(len(my_list))
+print(sum(my_list)/len(my_list))
+```
+
+### 나만의 별 찍기 함수
+
+```python
+def my_star(x):
+  print('*' * x)
+
+star = int(input())
+my_star(star)
+```
+
+### 코딩 대회
+
+```python
+score = [55, 58, 60, 45, 100, 95, 70, 88]
+score.append(90)
+score.pop(5)
+
+print(score)
+
+print('대상 수상자의 점수는',max(score),'점!')
+```
+
+---
+## 01-3 모듈과 패키지
+### [수업 자료] 모듈과 패키지
+0. 함수 : 특정 기능을 수행하는 코드 몇 줄
+1. 모듈 : 함수나 자료가 모여있는 파이썬 파일 (특정 목적을 구현하기 위한 복잡한 코드를 묶어둠)
+2. 패키지 : 모듈이 모여있는 폴더 (= 라이브러리)
+
+<모듈 사용법>
+
+import 모듈
+
+모듈.함수()
+
+from 모듈 import 함수 : 이렇게 사용하면 함수 이름만 써도 사용 가능
+
+<패키지 사용법>
+
+import 패키지
+
+패키지.모듈.함수()
+
+from 패키지 import 모듈 : 모듈.함수()로 간단하게 사용 가능
+
+form 패키지.모듈 import 함수 : 함수() 단독으로 사용 가능
+
+설치 방법 : !pip install 패키지
+
+<대표적인 패키지>
+
+pandas, numpy, seaborn, matplotlib, scikitlearn, pytorch
+
+<함수를 어떻게 만들었는지 보는 방법>
+
+github에서 검색해서 확인
+
+---
+
