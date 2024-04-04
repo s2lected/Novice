@@ -92,4 +92,34 @@ pandas, numpy, seaborn, matplotlib, scikitlearn, pytorch
 github에서 검색해서 확인
 
 ---
+## 01-4 모듈과 패키지 실습
+### 지구의 부피
 
+```python
+import math
+
+volume = (4/3) * math.pi * pow(6371,3)
+
+print(volume)
+```
+
+### 소수 판별기
+
+```python
+import prime
+
+num = int(input())
+
+print(prime.prime_number(num))
+```
+
+---
+## [자율심화] 02 파이썬 심화 문법
+### [수업자료] 실무에서 자주 사용하는 추가적인 문법 패턴
+01 f-string 포맷팅
+
+* f-string 포맷팅이란?
+
+  Python 3.6 이상부터 기존의 print보다 더 상세하게 출력할 수 있는 방법
+
+  Print와 함께 f 그리고 중괄호{}를 이용하여 표현 : f를 먼저 선언, 문자열(" ") 안에 중괄호{}와 변수명 작성
