@@ -120,13 +120,25 @@ print(prime.prime_number(num))
 
 * f-string 포맷팅이란?
 
-  Python 3.6 이상부터 기존의 print보다 더 상세하게 출력할 수 있는 방법
+Python 3.6 이상부터 기존의 print보다 더 상세하게 출력할 수 있는 방법
 
-  Print와 함께 f 그리고 중괄호{}를 이용하여 표현 : f를 먼저 선언, 문자열(" ") 안에 중괄호{}와 변수명 작성
+Print와 함께 f 그리고 중괄호{}를 이용하여 표현 : f를 먼저 선언, 문자열(" ") 안에 중괄호{}와 변수명 작성
 
 ```python
+hour = 9
+minute = 15
+word1 = "오전"
 
+print("현재 시간은", word1, hour, "시", minute, "분 입니다") #기존 방법
+print(f"현재 시간은 {word1} {hour}시 {minute}분 입니다") #f-string 포맷팅
+```
 
+02 List Comprehension
 
+* List Comprehension 이란?
+
+Python에서 리스트를 선언하는 방법
+
+기존의 리스트를 생성할 때, 
 
 
