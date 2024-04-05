@@ -114,7 +114,7 @@ print(prime.prime_number(num))
 ```
 
 ---
-## [자율심화] 02 파이썬 심화 문법
+## [자율심화]02 파이썬 심화 문법
 ### [수업자료] 실무에서 자주 사용하는 추가적인 문법 패턴
 01 f-string 포맷팅
 
@@ -267,9 +267,160 @@ for idx, value in enumerate(my_list):
   print(value)
 ```
 
-* 
+* enumerate 함수 예시
 
+  순서가 있는 자료형(리스트, 딕셔너리, 문자열 등)을 대상으로 다양하게 사용할 수 있음
 
+```python
+#리스트 - enumerate
+grades = [85, 92, 78, 90, 88]
 
+for index, grade in enumerate(grades, start = 1):
+  print(f"학생 {index}의 성적: {grade}점"
+
+#딕셔너리 - enumerate
+temperatures = {"서울":28, "부산":30, "대구":29, "인천":27, "광주":31}
+
+for place, temp in enumerate(temperatures.items(), start = 1):
+  city, temperature = temp
+  print(f"{place}. {city}의 온도: {temperature}도")
+
+#문자열 - enumerate
+text = "안녕하세요, 파이썬!"
+
+for index, char in enumerate(text, start = 1)
+  print(f"{index}번째 글자: {char}")
+```
 
 05 Lambda
+
+* Lambda 란?
+
+  Python에서 간단한 함수를 작성할 때 사용되는 익명 함수
+
+  lambda <매개변수>:<표현식>
+
+```python
+square = lambda x: x ** 2
+result = square(5)
+
+result = (lambda x: x ** 2)(5)
+```
+
+* Lambda 특징
+
+  간결하고 한 줄로 표현할 수 있으며 별도의 함수 정의 없어도 간단한 기능을 표현할 수 있음
+
+  복잡한 로직이나 긴 표현식을 사용하기에는 적합하지 않을 수 있음
+
+* 일반 함수와 람다(Lambda) 함수 비교
+
+  상품 가격과 수량을 받아 세금을 포함한 총 주문 가격을 계산하는 함수
+
+```python
+#일반 함수 구현
+def calculate_total_price(item_price, quantity):
+  tax_rate = 0.1
+  total_price = item_price * quantity
+  total_with_tax = total_price * (1 + tax_rate)
+  return total_with_tax
+
+item_price = 100
+quantity = 52
+
+total = calculate_total_price(item_price, quantity)
+
+print(total)
+
+#람다 함수 구현
+calculate_total_price = lambda item_price, quantity: (item_price * quantity) * 1.1
+
+item_price = 100
+quantity = 52
+
+print(total)
+```
+
+* lambda 심화 - map
+
+  map 함수는 함수와 시퀀스 자료형을 인자로 받음
+
+  시퀀스 자료형의 자료 하나씩 함수에 적용함
+
+  map함수의 결과를 그대로 print하면 결과 확인이 어려우므로 list로 형변환을 해서 확인함(map과 list가 주로 같이 사용됨)
+
+  map의 함수 자리에 Lambda 함수 사용 가능
+
+  두 예제는 같은 람다 함수를 사용했지만 Lambda 함수 위치와 list 형변환 위치가 다르다는 차이(정해진 규칙은 없음!)
+
+```python
+#map함수 바깥에 있는 Lambda 함수
+square = lambda x: x ** 2
+num_list = [10, 11, 12, 13, 14, 15]
+map_function = map(square, num_list)
+
+print(list(map_function))
+
+#map함수 안에 있는 Lambda 함수
+num_list = [10, 11, 12, 13, 14, 15]
+map_function = list(map(lambda x: x ** 2, num_list))
+
+print(map_function)
+```
+
+### [참고자료] if__name__ == "main__"
+01 Remind - 모듈
+
+* 모듈(Module)이란?
+
+  코드의 길이가 길어지는 상황에서 모든 함수, 변수를 구현하는 것은 어려움! → 누군가 만들어놓은 함수, 변수 등을 활용하자!
+
+  모듈(Module) = 특정 목적을 가진 함수, 자료의 모임
+
+02 if __name__ == "__main__"
+
+* 파이썬 파일을 실행하면 모든 코드를 실행한다
+
+  특정 프로그래밍 언어(ex. C, JAVA)에서는 해당 파일을 실행하면 main이라는 함수(main 함수)부터 시작 → 시작점이 분명함
+
+  하지만 파이썬은 main이라는 함수가 없어서 모든 코드(특히 들여쓰기가 되지 않은 코드)를 실행함
+
+  → 프로그램을 구성할 때 의도하지 않은 코드가 실행될 수 있음
+
+  → 프로그램 동작 순서를 구성하기 어려움
+
+  if __name__ == "__main__" 을 이용하면 시작점을 지정할 수 있음
+
+* if __name__ == "__main__" 사용 결과
+
+```python
+import sys
+
+def sum(a, b): #3번째 실행
+  c = a + b
+  return c
+
+def main(): #2번째 실행
+  print("3 더하기 6은?")
+
+  result = sum(3, 6)
+  print(result)
+
+if __name__ == "__main__": #1번째 실행
+  sys.exit(main())
+```
+
+---
+## [자율심화]03-1 디버깅이 필요한 이유
+### [수업 자료] 왜 디버깅이 필요할까요?
+
+
+
+
+
+
+
+
+
+
+
