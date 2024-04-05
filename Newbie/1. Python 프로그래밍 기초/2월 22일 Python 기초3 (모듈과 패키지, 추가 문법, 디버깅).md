@@ -120,9 +120,9 @@ print(prime.prime_number(num))
 
 * f-string 포맷팅이란?
 
-Python 3.6 이상부터 기존의 print보다 더 상세하게 출력할 수 있는 방법
+  Python 3.6 이상부터 기존의 print보다 더 상세하게 출력할 수 있는 방법
 
-Print와 함께 f 그리고 중괄호{}를 이용하여 표현 : f를 먼저 선언, 문자열(" ") 안에 중괄호{}와 변수명 작성
+  Print와 함께 f 그리고 중괄호{}를 이용하여 표현 : f를 먼저 선언, 문자열(" ") 안에 중괄호{}와 변수명 작성
 
 ```python
 hour = 9
@@ -137,8 +137,139 @@ print(f"현재 시간은 {word1} {hour}시 {minute}분 입니다") #f-string 포
 
 * List Comprehension 이란?
 
-Python에서 리스트를 선언하는 방법
+  Python에서 리스트를 선언하는 방법
 
-기존의 리스트를 생성할 때, 
+  기존의 리스트를 생성할 때, 조건문과 반복문을 사용한 여러 줄로 된 코드를 한 줄로 줄일 수 있음
+
+  리스트를 생성하는 대괄호 안에 조건문과 반복문을 사용하여 리스트를 생성할 수 있음
+
+```python
+num_list = [num for num in range(100) if num % 2 == 0] #0부터 99까지의 숫자 중에서 짝수만 저장된 리스트를 생성
+```
+
+* List Comprehension의 동작 순서
+
+  Case 1. 반복문만 이용한 사례
+
+  new_list = [<표현식> for <변수> in <시퀀스>]
+
+  new_list = [num * 10 for num in range(10)]
+
+```python
+num_list = [num for num in range(100)] #0부터 99까지 숫자를 저장한 리스트 생성 방법
+```
+
+  Case 2. 반복문과 조건문(if)을 이용한 사례
+
+  new_list = [<표현식> for <변수> in <시퀀스> if <조건>]
+
+  new_list = [str(num) for num in range(10) if num % 2 == 0]
+
+```python
+region_list = ["수원시(경기도)", "군산시(전라북도)", "포항시(경상북도)", "경주시(경상북도)", "익산시(전라북도)", "강릉시(강원도)", "동해시(강원도)", "고양시(경기도)"]
+
+gyeonggi_list = [region for region in region_list if "경기도" in region] #무작위 시(도) 리스트 중에서 경기도만 추출하여 저장하는 방법
+```
+
+  Case 3. 반복문과 조건문(if-else)을 이용한 사례
+
+  if와 함께 else가 있어야 함
+
+  Case 2와 순서가 다름
+
+  new_list = [<표현식> if <조건> else <표현식2> for <변수> in <시퀀스>]
+
+  new_list = ["짝수" if num % 2 == 0 else "홀수" for num in range(10)]
+
+```python
+original_prices = [800, 1200, 950, 1100, 750, 1300]
+discounted_prices = [int(price * 0.9) if price >= 1000 else price for price in original_prices] #물건의 가격이 1000원 이상이면 10% 할인, 그렇지 않으면 원래 가격을 유지
+```
+
+03 Sorted
+
+* 리스트를 정렬하는 방법 (1) - sort 메소드
+
+  Python에서 리스트를 정렬하는 방법은 sort 메소드를 사용
+
+  sort 메소드는 원본 리스트를 정렬
+
+  sort 메소드를 사용한 명령어를 저장하면 None이 저장됨
+
+```python
+my_list = [5, 2, 3, 1, 4]
+my_list.sort()
+print(my_list) = [1, 2, 3, 4, 5]
+```
+
+* 리스트를 정렬하는 방법 (2) - sorted 함수
+
+  Python에서 리스트를 정렬하는 또다른 방법은 sorted 함수를 사용
+
+  sorted 함수는 복사본 리스트를 정렬
+
+  sorted 함수를 사용한 명령어를 저장하면 정렬된 리스트가 저장됨
+
+```python
+my_list = [5, 2, 3, 1, 4]
+sort_list = sorted(my_list)
+print(sort_list) = [1, 2, 3, 4, 5]
+```
+
+sort 메소드
+
+결과 : 원본 리스트를 정렬
+
+사용법 : list.sort()
+
+내림차순 정렬 : list.sort(reverse = True)
+
+장점 : sorted 함수보다 계산 효율이 미세하게 좋음
+
+sorted 함수
+
+결과 : 복사본 리스트를 정렬
+
+사용법 : result = sorted(list)
+
+내림차순 정렬 : result = sorted(list, reverse = True)
+
+장점 : 원본 리스트를 유지할 수 있음
+
+04 Enumerate
+
+* enumerate 이란?
+
+  enumerate은 순서가 있는 자료형을 대상으로 인덱스(순서)와 그 값을 전달하는 기능을 가진 함수
+
+  enumerate 함수를 print하면 내부 값을 알기 어려움
+
+  list로 형변환하면 확인할 수 있음
+
+  시작 번호를 지정할 수 있음 (보통은 0부터 시작)
+
+```python
+my_list = ["Spring", "Summer", "Fall", "Winter"]
+print(list(enumerate(my_list, start = 2023))) = [(2023, 'Spring'), (2024, 'Summer'), (2025, 'Fall'), (2026, 'Winter')]
+```
+
+* enumerate 함수와 for문
+
+  enumerate은 for문과 함께 자주 사용됨
+
+  for문에서는 list 형변환 없이 바로 사용할 수 있음
+
+```python
+my_list = ["elice", "rabiit", "clock", "queen"]
+
+for idx, value in enumerate(my_list):
+  print(idx)
+  print(value)
+```
+
+* 
 
 
+
+
+05 Lambda
