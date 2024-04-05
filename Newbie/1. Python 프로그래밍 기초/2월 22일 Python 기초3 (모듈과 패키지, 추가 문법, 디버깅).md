@@ -413,14 +413,183 @@ if __name__ == "__main__": #1번째 실행
 ---
 ## [자율심화]03-1 디버깅이 필요한 이유
 ### [수업 자료] 왜 디버깅이 필요할까요?
+* 버그와 예외
 
+  <버그(Bug) : 코드가 원하는 대로 동작하지 않는 모든 경우>
 
+  프로그램이 죽는 (크래시가 발생하는) 경우
 
+  예상한 속도보다 훨씬 느리게 동작하는 경우
 
+  잘못된 결과를 출력하는 경우
 
+  코드 설계 상 일어나면 안 되는 상황이 일어난 경우
 
+  <예외(Exception) : 일반적이지 않은 코드의 동작>
 
+  사용자가 프로그램을 강제 종료하는 경우
 
+  분수의 분모에 0이 들어가는 경우
 
+  열고자 하는 파일이 존재하지 않는 경우
 
+  인터넷이 불안정한 경우
 
+  예외 처리(Exception handling) : 인터넷이 끊기거나 휴대폰이 꺼졌다면? 개발자는 사용자의 다양한 상황을 예측할 수 있어야 함
+
+* 디버깅이란?
+
+  사용/테스트 중 찾아낸 버그를 없애 나가는 과정
+
+  버그의 원인을 찾고
+
+  발생한 버그를 해결하고
+
+  비슷한 버그의 재발을 방지하는 것
+
+  <버그의 원인 찾기>
+
+  어떤 상황에서, 어떤 조작을 했을 때 일어나는가?
+
+  얼마나 잦은 빈도로 발생하는가?
+
+  에러 메시지가 뜬다면 내용이 무엇인가?
+
+  <발생한 버그 해결하기>
+
+  버그가 발생한 원인을 해결하려면 어떻게 해야 하는가?
+
+  새로운 코드가 일으킬 새로운 버그는 없는가?
+
+  <버그 재발 방지하기>
+
+  버그를 일으킨 코드가 다른 곳에서 사용되는가?
+
+  비슷한 설계를 이용한 다른 코드는 없는가?
+
+  코친 코드의 약점은 없는가?
+
+  코드를 지속적으로 검증할 방법은 무엇인가?
+
+* 디버깅이 중요한 이유
+
+  사용자 경험과 직결 : 버그로 인한 불쾌한 경험 > 새로운 기능
+
+  처음부터 완벽한 코드는 없다 : 빠르게 문제를 파악/해결하는 것이 능력! (코드가 한 번에 작동할 때 → 어... 왜 벌써 되지?)
+
+  실패는 성공의 어머니 : 많은 버그를 경험할수록, 더 안전한 코드를 설계하는 능력이 생긴다!
+
+### [실습1] 디버깅 문제 예시
+
+```python
+n = int(input())
+result = []
+
+for i in range(1, n+1) :
+  result.append("결과" + str(i) + ".txt");
+
+for r in result :
+  print(r)
+```
+
+---
+## 자율 실습 문항
+### [실습4] 사투리 전문가
+
+```python
+greeting = '밥 먹었어?'
+print("서울 :",greeting)
+
+def busan(greeting):
+  greeting = '밥 뭇나?'
+
+  print("부산 :",greeting)
+
+busan(greeting)
+print(greeting)
+```
+
+### [실습5] 메서드
+
+```python
+my_dict = {1:'Apple',2:'Microsoft',3:'nVidia'}
+
+var1 = my_dict.keys()
+var2 = my_dict.values()
+
+print(var1)
+print(var2)
+```
+
+### [미션 1] 타율 구하기
+
+```python
+def batting_average(score):
+  on = score[0]
+  hit = sum(score[1:])
+
+  if hit > on:
+    return -1
+  else:
+    return(round((hit / on),3))
+
+# 이승엽 선수의 한국 야구 통산 타석수, 1루타 개수, 2루타 개수,3루타 개수, 홈런 개수
+batting_score = [7132, 1197, 464, 28, 467]
+print(batting_average(batting_score))
+```
+
+### 청개구리
+
+```python
+def tree_frog(boolean):
+  if boolean:
+    value = False
+  else:
+    value = True
+  return value
+
+print(tree_frog(1==1))
+```
+
+### 봉주~르! 안녕하세요!
+
+```python
+def greeting():
+  print('bonjour!')
+
+print('bonjour!')
+```
+
+### 호박 고르기
+
+```python
+pumpkin = (1,2,3,4,5)
+big = max(pumpkin)
+small = min(pumpkin)
+```
+
+### 사투리 전문가
+
+```python
+greeting = '밥 먹었어?'
+print("서울 :",greeting)
+
+def busan(greeting):
+  greeting = '밥 뭇나?'
+
+  print("부산 :",greeting)
+
+busan(greeting)
+print(greeting)
+```
+
+### [실습2] 모듈 활용 : time
+
+```python
+import time
+
+clock = time.ctime()
+print(clock)
+```
+
+---
