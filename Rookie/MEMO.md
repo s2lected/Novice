@@ -1,4 +1,4 @@
-# Rookie
+## Rookie
 
 ### * Source
 https://www.codepass.co.kr/
