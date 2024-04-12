@@ -4,7 +4,7 @@
 https://www.codepass.co.kr/
 
 ### * Contents
-codepass
+Code Pass
 
 ### * Course
 
