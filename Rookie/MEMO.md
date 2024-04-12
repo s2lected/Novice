@@ -7,4 +7,4 @@ https://www.codepass.co.kr/
 Code Pass
 
 ### * Course
-
+24 Certi. 정복 Python 필수 문법
