@@ -1,8 +1,10 @@
-# Beginner
+## Beginner
 
-Source : https://codeup.kr/problemsetsol.php?psid=33
+### * Source
+https://codeup.kr/problemsetsol.php?psid=33
 
-Contents : Code Up / Python 기초 100제
+### * Contents
+Code Up / Python 기초 100제
 
 Tip
 1. 입력된 문자열을 정확하게 잘라낸다.(공백, 줄바꿈, 구분문자 등에 따라 정확하게 잘라낸다.)
