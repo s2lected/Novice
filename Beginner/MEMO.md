@@ -2,12 +2,15 @@
 
 ### * Source
 https://codeup.kr/problemsetsol.php?psid=33
+DS2 Academy
 
 ### * Contents
 Code Up
+Track B - Intermediate
 
 ### * Course
 Python 기초 100제
+Python 기초
 
 #### Tip
 1. 입력된 문자열을 정확하게 잘라낸다.(공백, 줄바꿈, 구분문자 등에 따라 정확하게 잘라낸다.)
