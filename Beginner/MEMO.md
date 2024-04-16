@@ -2,14 +2,17 @@
 
 ### * Source
 https://codeup.kr/problemsetsol.php?psid=33
+
 DS2 Academy
 
 ### * Contents
 Code Up
+
 Track B - Intermediate
 
 ### * Course
 Python 기초 100제
+
 Python 기초
 
 #### Tip
